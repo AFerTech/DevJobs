@@ -1,3 +1,3 @@
 <h1 class="text-4xl">
-    Dev<span class="font-extrabold">Jobs</span>
+    Coyote<span class="font-extrabold">Training</span>
 </h1>
