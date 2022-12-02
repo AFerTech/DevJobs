@@ -35,7 +35,7 @@
             <div class="block mt-4">
                 <label for="remember_me" class="inline-flex items-center">
                     <input id="remember_me" type="checkbox" class="text-indigo-600 border-gray-300 rounded shadow-sm focus:ring-indigo-500" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Recordarme') }}</span>
                 </label>
             </div>
 
@@ -53,7 +53,7 @@
                 </x-link>
 
             </div>
-            <x-primary-button class="ml-3">
+            <x-primary-button class="w-full justify-center">
                 {{ __('Iniciar Sesión') }}
             </x-primary-button>
         </form>
