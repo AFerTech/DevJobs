@@ -30,7 +30,7 @@
                     <option value="">--Seleccionar Rol--</option>
                     <option value="2">Developper</option>
                     <option value="3">DevOps</option>
-                    <option value="4">Data Ciencie</option>
+                    <option value="4">Data Cience</option>
                     <option value="5">UX/UI</option>
                     <option value="6">Scrum Master</option>
                     <option value="7">Front End</option>
