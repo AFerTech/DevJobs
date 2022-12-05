@@ -27,7 +27,7 @@
             <div class="mt-4">
                 <x-input-label for="rol" :value="__('Tipo')" />
                 <select name="rol" id="rol" class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                    <option value="1">--Seleccionar Rol--</option>
+                    <option value="">--Seleccionar Rol--</option>
                     <option value="2">Developper</option>
                     <option value="3">DevOps</option>
                     <option value="4">Data Ciencie</option>
@@ -37,8 +37,9 @@
                     <option value="8">Back End</option>
                     <option value="9">Full Stack</option>
                     <option value="10">Support</option>
-
                 </select>
+                <x-input-error :messages="$errors->get('rol')" class="mt-2" />
+
             </div>
 
             <!-- Password -->
