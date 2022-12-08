@@ -21,7 +21,7 @@ class CrearVacante extends Component
         'empresa' => 'required|string',
         'salario' => 'required',
         'categoria' => 'required',
-        'fehca_postulacion' => 'required',
+        'fecha_postulacion' => 'required',
         'img' => 'required',
         'descripcion' => 'required'
     ];
@@ -36,5 +36,10 @@ class CrearVacante extends Component
             'salarios' => $salarios,
             'categorias' =>$categorias,
         ]);
+    }
+    public function crearVacante()
+    {
+        // si pasa la validacion de $rules, se asigna a datos
+        $datos = $this->validate();
     }
 }
