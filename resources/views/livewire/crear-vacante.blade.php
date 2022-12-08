@@ -7,7 +7,7 @@
         class="block w-full mt-1"
         id="titulo"
         type="text"
-        name="titulo"
+        wire:model="titulo"
         :value="old('titulo')"
         placeholder="Nombre de la Vacante"
         />
@@ -21,7 +21,7 @@
         class="block w-full mt-1"
         id="empresa"
         type="text"
-        name="empresa"
+        wire:model="empresa"
         :value="old('empresa')"
         placeholder="Nombre de la empresa Ej. Netflix, Bancomer, Coppel, Didi"
         />
@@ -32,7 +32,7 @@
         <x-input-label for="salario" :value="__('Salario Mensual')" />
 
         <select
-        name="salario"
+        wire:model="salario"
         id="salario"
         class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring-indigo-200 focus:ring-opacity-50">
 
@@ -49,7 +49,7 @@
         <x-input-label for="categoria" :value="__('Categoria')" />
 
         <select
-        name="categoria"
+        wire:model="categoria"
         id="categoria"
         class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring-indigo-200 focus:ring-opacity-50">
 
@@ -69,7 +69,7 @@
         class="block w-full mt-1"
         id="fecha_postulacion"
         type="date"
-        name="fecha_postulacion"
+        wire:model="fecha_postulacion"
         :value="old('fecha_postulacion')"
         />
         <x-input-error :messages="$errors->get('fecha_postulacion')" class="mt-2" />
@@ -82,7 +82,7 @@
         class="block w-full mt-1"
         id="img"
         type="file"
-        name="img"
+        wire:model="img"
         />
     </div>
     {{-- Descripciòn --}}
@@ -91,7 +91,7 @@
 
         <textarea
         class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring-indigo-200 focus:ring-opacity-50"
-        name="descripcion"
+        wire:model="descripcion"
         id="descripcion"
         placeholder="Descripciòn de la vacante"
         cols="30"
