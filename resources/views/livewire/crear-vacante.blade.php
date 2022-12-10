@@ -85,6 +85,12 @@
         wire:model="img"
         accept="image/*"
         />
+        <div class="my-5 w-80">
+            @if($img)
+             
+             <img src="{{$img->temporaryUrl()}}" alt="Imagen Subida">
+            @endif
+        </div>
         <x-input-error :messages="$errors->get('img')" class="mt-2" />
 
     </div>
