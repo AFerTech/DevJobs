@@ -63,7 +63,7 @@
     </div>
     {{-- Fecha Postulaciòn --}}
     <div class="mt-4">
-        <x-input-label for="fecha_postulacion" :value="__('Fecha limite ')" />
+        <x-input-label for="fecha_postulacion" :value="__('Fecha limite Postulación ')" />
 
         <x-text-input
         class="block w-full mt-1"
@@ -83,7 +83,10 @@
         id="img"
         type="file"
         wire:model="img"
+        accept="image/*"
         />
+        <x-input-error :messages="$errors->get('img')" class="mt-2" />
+
     </div>
     {{-- Descripciòn --}}
     <div class="mt-4">
