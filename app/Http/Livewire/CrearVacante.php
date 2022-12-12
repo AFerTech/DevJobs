@@ -63,6 +63,10 @@ class CrearVacante extends Component
         ]);
         // crear msj
 
+        session()->flash('mensaje', 'Vacante Creada Correctamente');
+
         // redireccionar a vacantes
+
+        return redirect()->route('vacantes.index');
     }
 }
