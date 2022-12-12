@@ -16,11 +16,7 @@
                 </div>
             @endif
 
-            <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("Vacantes") }}
-                </div>
-            </div>
+            @livewire('mostrar-vacantes')
         </div>
     </div>
 </x-app-layout>
