@@ -75,6 +75,10 @@
         <x-input-error :messages="$errors->get('fecha_postulacion')" class="mt-2" />
     </div>
     {{-- IMG --}}
+    <div  class="mt-4">
+        <x-input-label :value="__('Imagen Actual ')" />
+        <img src="{{asset('storage/vacantes/'. $img)}}" alt="{{'Imagen Vacante: '.$titulo}}">
+    </div>
     {{-- <div class="mt-4">
         <x-input-label for="img" :value="__('Imagen ')" />
 
@@ -110,7 +114,7 @@
     </div>
 
     <x-primary-button class="justify-center w-full">
-        {{ __('Publicar Vacante') }}
+        {{ __('Guardar Cambios') }}
     </x-primary-button>
 
 </form>
