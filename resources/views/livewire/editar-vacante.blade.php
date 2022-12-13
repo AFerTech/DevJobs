@@ -74,30 +74,32 @@
         />
         <x-input-error :messages="$errors->get('fecha_postulacion')" class="mt-2" />
     </div>
-    {{-- IMG --}}
-    <div  class="mt-4">
-        <x-input-label :value="__('Imagen Actual ')" />
-        <img src="{{asset('storage/vacantes/'. $img)}}" alt="{{'Imagen Vacante: '.$titulo}}">
-    </div>
-    {{-- <div class="mt-4">
-        <x-input-label for="img" :value="__('Imagen ')" />
+    {{-- IMG Actual --}}
+    <div class="mt-4">
 
-        <x-text-input
+    <x-text-input
         class="block w-full mt-1"
         id="img"
         type="file"
-        wire:model="img"
+        wire:model="newImg"
         accept="image/*"
         />
-        <div class="my-5 w-80">
-            @if($img)
 
-             <img src="{{$img->temporaryUrl()}}" alt="Imagen Subida">
-            @endif
-        </div>
-        <x-input-error :messages="$errors->get('img')" class="mt-2" />
+    <div  class="mt-4">
+        <x-input-label :value="__('Imagen Actual')" />
+        <img src="{{asset('storage/vacantes/'. $img)}}" alt="{{'Imagen Vacante: '.$titulo}}">
+    </div>
 
-    </div> --}}
+    {{-- IMG Nueva --}}
+    <div class="mt-4">
+        @if($newImg)
+        <x-input-label :value="__('Nueva Imagen')" />
+        <img src="{{$newImg->temporaryUrl()}}" alt="{{'Imagen Vacante: '. $titulo}}">
+        @endif
+        <x-input-error :messages="$errors->get('newImg')" class="mt-2" />
+    </div>
+    
+    </div>
     {{-- Descripciòn --}}
     <div class="mt-4">
         <x-input-label for="descripcion" :value="__('Descripciòn de la vacante ')" />
