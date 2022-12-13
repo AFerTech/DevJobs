@@ -18,6 +18,14 @@ class EditarVacante extends Component
     public $descripcion;
     public $img;
 
+    protected $rules =[
+        'titulo' => 'required|string',
+        'empresa' => 'required|string',
+        'salario' => 'required',
+        'categoria' => 'required',
+        'fecha_postulacion' => 'required',
+        'descripcion' => 'required'
+    ];
 
     public function mount(Vacante $vacante)
     {
@@ -29,10 +37,12 @@ class EditarVacante extends Component
         $this->fecha_postulacion =Carbon::parse($vacante->fecha_postulacion)->format('Y-m-d');
         $this->descripcion = $vacante->descripcion;
         $this->img = $vacante->img;
+    }
 
 
-
-
+    public function editarVacante()
+    {
+        $datos= $this->validate();
     }
     public function render()
     {
