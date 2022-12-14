@@ -36,4 +36,12 @@
             <p class="font-bold text-sm  text-gray-800 my-3">{{$vacante->descripcion}}</p>
         </div>
     </div>
+
+    @guest
+        <div class="mt-5 bg-gray-50 border border-dashed p-5 text-center">
+            <p>¿Deseas aplicar a la vacante?</p>
+            <a href="{{route('login')}}" class="font-bold text-indigo-600">Inicia sesión para poder aplicar a la vacante</a>
+        </div>
+    @endguest
+
 </div>
