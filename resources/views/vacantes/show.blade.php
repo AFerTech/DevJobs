@@ -9,9 +9,10 @@
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg p-3">
                 <h2 class="text-4xl font-bold text-center nb-10"> {{$vacante->titulo}}</h1>
-                    <p>
-                        @livewire('mostrar-vacante')
-                    </p>
+
+                <livewire:mostrar-vacante
+                :vacante="$vacante"/>
+
             </div>
         </div>
     </div>
