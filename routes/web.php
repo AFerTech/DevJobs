@@ -25,8 +25,7 @@ Route::get('/vacantes.create',[VacanteController::class, 'create'])->middleware(
 ->name('vacantes.create');
 Route::get('/vacantes/{vacante}/edit',[VacanteController::class, 'edit'])->middleware(['auth', 'verified'])
 ->name('vacantes.edit');
-Route::get('/vacantes.delete',[VacanteController::class, 'delete'])->middleware(['auth', 'verified'])
-->name('vacantes.delete');
+Route::get('/vacantes/{vacante}',[VacanteController::class, 'show'])->name('vacantes.show');
 
 
 
