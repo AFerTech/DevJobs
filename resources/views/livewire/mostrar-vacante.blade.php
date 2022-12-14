@@ -24,4 +24,16 @@
        <span class="normal-case font-normal">{{$vacante->salario->salario}}</span>
        </p>
     </div>
+
+    <div class="md:grid md:grid-cols-6 gap-4">
+        {{-- IMG --}}
+        <div class="md:col-span-2">
+            <img src="{{asset('storage/vacantes/' .$vacante->img)}}" alt="{{'Imagen de la vacante'.$vacante->titulo}}">
+        </div>
+        {{-- Descripcion --}}
+        <div class="md:col-span-4">
+            <h2 class="text-2xl font-bold mb-5">Descripción</h2>
+            <p class="font-bold text-sm  text-gray-800 my-3">{{$vacante->descripcion}}</p>
+        </div>
+    </div>
 </div>
