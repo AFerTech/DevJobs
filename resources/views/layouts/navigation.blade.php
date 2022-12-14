@@ -11,17 +11,20 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
-                        {{ __('Vacantes') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
-                        {{ __('Crear Vacante') }}
-                    </x-nav-link>
-                </div>
+                @auth
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
+                            {{ __('Vacantes') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
+                            {{ __('Crear Vacante') }}
+                        </x-nav-link>
+                    </div>
+                @endauth
             </div>
 
             <!-- Settings Dropdown -->
+        @auth
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
@@ -54,6 +57,18 @@
                     </x-slot>
                 </x-dropdown>
             </div>
+        @endauth
+        @guest
+        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+            <x-nav-link :href="route('vacantes.index')" :active="request()->routeIs('login')">
+                {{ __('Inciar Sesion') }}
+            </x-nav-link>
+            <x-nav-link :href="route('vacantes.create')" :active="request()->routeIs('register')">
+                {{ __('Crear Cuenta') }}
+            </x-nav-link>
+        </div>
+        @endguest
+
 
             <!-- Hamburger -->
             <div class="flex items-center -mr-2 sm:hidden">
@@ -67,40 +82,53 @@
         </div>
     </div>
 
+
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
-                {{ __('Vacantes') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
-                {{ __('Crear Vacante') }}
-            </x-responsive-nav-link>
-        </div>
-
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="px-4">
-                <div class="text-base font-medium text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="text-sm font-medium text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
-
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+        @auth
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
+                    {{ __('Vacantes') }}
                 </x-responsive-nav-link>
-
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link>
-                </form>
+                <x-responsive-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
+                    {{ __('Crear Vacante') }}
+                </x-responsive-nav-link>
             </div>
+
+            <!-- Responsive Settings Options -->
+            <div class="pt-4 pb-1 border-t border-gray-200">
+                <div class="px-4">
+                    <div class="text-base font-medium text-gray-800">{{ Auth::user()->name }}</div>
+                    <div class="text-sm font-medium text-gray-500">{{ Auth::user()->email }}</div>
+                </div>
+
+                <div class="mt-3 space-y-1">
+                    <x-responsive-nav-link :href="route('profile.edit')">
+                        {{ __('Profile') }}
+                    </x-responsive-nav-link>
+
+                    <!-- Authentication -->
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <x-responsive-nav-link :href="route('logout')"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Log Out') }}
+                        </x-responsive-nav-link>
+                    </form>
+                </div>
+            </div>
+        @endauth
+        @guest
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">
+                {{ __('Iniciar Sesion') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                {{ __('Crear Cuenta') }}
+            </x-responsive-nav-link>
         </div>
+        @endguest
     </div>
 </nav>
