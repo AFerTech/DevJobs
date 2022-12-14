@@ -20,17 +20,19 @@
                 <a href="#" class="bg-slate-800 py-2 px-4 rounded-lg text-white text-xs font-bold
                 uppercase text-center">
                 Candidatos
-
                 </a>
+
                 <a href="{{route('vacantes.edit',[$vacante->id])}}" class="bg-blue-800 py-2 px-4 rounded-lg text-white text-xs font-bold
                 uppercase text-center">
                 Editar
-
                 </a>
-                <a href="#" class="bg-red-600 py-2 px-4 rounded-lg text-white text-xs font-bold
+
+                <button
+                 wire:click="$emit('mostrarAlert', {{$vacante->id}})"
+                 class="bg-red-600 py-2 px-4 rounded-lg text-white text-xs font-bold
                 uppercase text-center">
                 Eliminar
-                </a>
+                </button>
             </div>
         </div>
 
@@ -49,24 +51,28 @@
 
 @push('scripts')
     <script>
-        Swal.fire({
-            title: '¿Eliminar vacante?',
-            text: "Las vacantes eliminas no se pueden recuperar",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, ¡eliminar!',
-            cancelButtonText: 'Cancelar',
+        Livewire.on('mostrarAlert', vacanteId =>{
 
-            }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-                )
-            }
+            Swal.fire({
+                title: '¿Seguro que desea eliminar la vacante?',
+                text: "Las vacantes eliminadas no se pueden recuperar",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '¡Si, Eliminar!',
+                cancelButtonText: 'Cancelar',
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    // eliminar la vacante
+                    Livewire.emit('eliminarVacante', vacanteId)
+                    Swal.fire(
+                    '¡Eliminado!',
+                    'La vacante ha sido eliminada',
+                    'Eliminado Correctamente'
+                    )
+                }
+                })
         })
     </script>
 @endpush
