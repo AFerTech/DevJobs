@@ -44,10 +44,11 @@
         </div>
     @endguest
 
+    @auth
+        @cannot('create', App\Models\Vacante::class)
 
-    @cannot('create', App\Models\Vacante::class)
-
-        <livewire:postular-vacante />
-    @endcannot
+            <livewire:postular-vacante />
+        @endcannot
+    @endauth
 
 </div>
