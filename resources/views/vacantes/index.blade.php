@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">
-            {{ env('DB_USERNAME') }}
+            {{ Auth::user()->name }}
         </h2>
     </x-slot>
 
