@@ -19,7 +19,7 @@ class VacantePolicy
     public function viewAny(User $user)
     {
         //
-        return $user->rol == 2;
+        // return $user->rol == 2;
     }
 
     /**

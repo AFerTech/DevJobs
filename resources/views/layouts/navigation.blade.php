@@ -12,13 +12,19 @@
 
                 <!-- Navigation Links -->
                 @auth
+
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
                             {{ __('Vacantes') }}
                         </x-nav-link>
+
+
+                        @can('create', App\Models\Vacante::class)
                         <x-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
                             {{ __('Crear Vacante') }}
                         </x-nav-link>
+                        @endcan
+                        
                     </div>
                 @endauth
             </div>
@@ -90,9 +96,15 @@
                 <x-responsive-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
                     {{ __('Vacantes') }}
                 </x-responsive-nav-link>
+
+                @can('create', App\Models\Vacante::class)
+
                 <x-responsive-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
                     {{ __('Crear Vacante') }}
                 </x-responsive-nav-link>
+
+                @endcan
+
             </div>
 
             <!-- Responsive Settings Options -->
