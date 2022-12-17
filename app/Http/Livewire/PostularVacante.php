@@ -2,21 +2,27 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
+use App\Models\Vacante;
 // Habilitar la carga de archivos
+use Livewire\Component;
 use Livewire\WithFileUploads;
+
 class PostularVacante extends Component
 {
     use WithFileUploads;
 
     public $cv;
+    public $vacante;
 
 
     protected $rules =[
         'cv' => 'required|mimes:pdf'
     ];
 
-
+    public function mount (Vacante $vacante)
+    {
+        $this->vacante->$vacante;
+    }
     public function postularme()
     {
          // si pasa la validacion de $rules, se asigna a datos
@@ -26,9 +32,10 @@ class PostularVacante extends Component
          $cv=$this->cv->store('public/cv');
          $datos['cv'] = str_replace('public/cv/', '',$cv);
         // Crear la postulacion
-        // Vacante::create([
-        //     'user_id' => auth()->user()->id,
-        //     ]);
+        $this->vacante->candidatos()->create([
+            'user_id' => auth()->user()->id,
+            'cv' => $datos['cv']
+        ]);
         // Crear notificacion y enviar email
 
         // Mostrar msj de ok
