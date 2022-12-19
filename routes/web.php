@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VacanteController;
 use Illuminate\Support\Facades\Route;
@@ -27,7 +28,8 @@ Route::get('/vacantes/{vacante}/edit',[VacanteController::class, 'edit'])->middl
 ->name('vacantes.edit');
 Route::get('/vacantes/{vacante}',[VacanteController::class, 'show'])->name('vacantes.show');
 
-
+// notificaciones
+Route::get('/notificaciones', NotificacionController::class);
 
 
 Route::middleware('auth')->group(function () {
