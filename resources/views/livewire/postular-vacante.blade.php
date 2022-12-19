@@ -2,9 +2,9 @@
     <h3 class="text-center text-2xl font-bold my-4">Postular a la vacante</h3>
 
     @if(session()->has('mensaje'))
-    <div class="uppercase border border-green-600 bg-green-100 text-green-600 font-bold p-2 my-5 text-sm">
+    <p class="uppercase border border-green-600 bg-green-100 text-green-600 font-bold p-2 my-5 text-sm">
         {{session('mensaje')}}
-    </div>
+    </p>
     @else
 
     <form action="" class="w-96 mt-5" novalidate wire:submit.prevent='postularme'>
