@@ -13,6 +13,5 @@ class Candidato extends Model
         'user_id',
         'vacante_id',
         'cv',
-
     ];
 }
