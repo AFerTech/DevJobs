@@ -29,7 +29,7 @@ Route::get('/vacantes/{vacante}/edit',[VacanteController::class, 'edit'])->middl
 Route::get('/vacantes/{vacante}',[VacanteController::class, 'show'])->name('vacantes.show');
 
 // notificaciones
-Route::get('/notificaciones', NotificacionController::class);
+Route::get('/notificaciones', NotificacionController::class)->middleware(['auth', 'verified', 'rol.2'])->name('notificaiones');
 
 
 Route::middleware('auth')->group(function () {

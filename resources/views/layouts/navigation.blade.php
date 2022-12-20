@@ -24,7 +24,7 @@
                             {{ __('Crear Vacante') }}
                         </x-nav-link>
                         @endcan
-                        
+
                     </div>
                 @endauth
             </div>
@@ -32,6 +32,13 @@
             <!-- Settings Dropdown -->
         @auth
             <div class="hidden sm:flex sm:items-center sm:ml-6">
+                @if(auth()->user()->rol == 2)
+                       <a href="{{route('notificaiones')}}" class="mr-2 w-7 h-7 bg-indigo-600
+                       hover:bg-indigo-800 rounded-full flex flex-col justify-center items-center text-sm font-extrabold text-white">
+                        {{Auth::user()->unreadNotifications->count()}}
+                       </a>
+                @endif
+
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-gray-700 focus:outline-none">
@@ -102,6 +109,18 @@
                 <x-responsive-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
                     {{ __('Crear Vacante') }}
                 </x-responsive-nav-link>
+
+                @if(auth()->user()->rol == 2)
+                <div class="flex gap-2 items-center p-3">
+                    <a href="{{route('notificaiones')}}" class="w-7 h-7 bg-indigo-600
+                    hover:bg-indigo-800 rounded-full flex flex-col justify-center items-center text-sm font-extrabold text-white">
+                    {{Auth::user()->unreadNotifications->count()}}
+                    </a>
+                    <p class="text-gray-600 text-base font-medium">
+                        @choice('Notificacion|Notificaciones', Auth::user()->unreadNotifications->count())
+                    </p>
+                </div>
+                @endif
 
                 @endcan
 
