@@ -31,7 +31,7 @@ Route::get('/vacantes/{vacante}',[VacanteController::class, 'show'])->name('vaca
 Route::get('/candidatos/{vacante}', [CandidatosController::class, 'index'])->name('candidatos.index');
 
 // notificaciones
-Route::get('/notificaciones', NotificacionController::class)->middleware(['auth', 'verified', 'rol.2'])->name('notificaiones');
+Route::get('/notificaciones', NotificacionController::class)->middleware(['auth', 'verified',])->name('notificaiones');
 
 
 Route::middleware('auth')->group(function () {
