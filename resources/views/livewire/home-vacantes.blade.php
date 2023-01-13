@@ -12,6 +12,8 @@
                                 {{$vacante->titulo}}
                             </a>
                             <p class="text-base text-gray-600 mb-3">{{$vacante->empresa}}</p>
+                            <p class="text-base text-gray-600 mb-3">{{$vacante->categoria->categoria}}</p>
+                            <p class="text-base text-gray-600 mb-3">{{$vacante->salario->salario}}</p>
                             <p class="font-bold text-xs text-gray-600 ">Último día para postular:
                                 <span class="font-normal">{{$vacante->fecha_postulacion->format('d/m/Y')}}</span>
                             </p>
