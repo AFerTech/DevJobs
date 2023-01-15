@@ -21,6 +21,13 @@
         </style>
     </head>
     <body class="antialiased">
-       <h1>DevJobs</h1>
+        <div>
+            <header>
+                <nav>
+                    <a href="{{route ('login')}}">Iniciar Sesión</a>
+                </nav>
+            </header>
+        </div>
+
     </body>
 </html>
